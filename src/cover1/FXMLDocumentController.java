@@ -7,14 +7,12 @@ package cover1;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -47,6 +45,8 @@ public class FXMLDocumentController implements Initializable {
         imageView.setPreserveRatio(true);
         image = new Image("file:C:\\Users\\47385\\Documents\\Personal\\OMR\\marce.jpg");
         imageView.setImage(image);
+        canvas.setHeight(imageView.getBoundsInParent().getHeight());
+        canvas.setWidth(imageView.getBoundsInParent().getWidth());
     }    
     
     @FXML

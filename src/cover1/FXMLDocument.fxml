@@ -10,13 +10,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="467.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cover1.FXMLDocumentController">
     <children>
-      <StackPane prefHeight="467.0" prefWidth="580.0">
+      <StackPane maxHeight="467.0" maxWidth="580.0" minHeight="467.0" minWidth="580.0" prefHeight="467.0" prefWidth="580.0">
          <children>
-            <Pane maxHeight="467.0" maxWidth="580.0" minHeight="467.0" minWidth="580.0" prefHeight="467.0" prefWidth="580.0">
-               <children>
-                  <ImageView fx:id="imageView" fitHeight="467.0" fitWidth="580.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </Pane>
+            <ImageView fx:id="imageView" fitHeight="467.0" fitWidth="580.0" pickOnBounds="true" preserveRatio="true" />
             <Canvas fx:id="canvas" height="467.0" onMouseDragged="#handleCanvasOnMouseDrag" onMouseEntered="#handleCanvasOnMouseEnter" onMouseExited="#handleCanvasOnMouseExit" onMouseMoved="#handleCanvasOnMouseMoved" onMousePressed="#handleCanvasOnMousePressed" onMouseReleased="#handleCanvasOnMouseReleased" width="580.0" />
          </children>
       </StackPane>

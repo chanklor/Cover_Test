@@ -70,9 +70,7 @@ public class FXMLDocumentController implements Initializable {
         
         double stepX = deltaX / (double) (numberColumn - 1);
         double stepY = deltaY / (double) (numberRow - 1);
-        
-        System.out.println("Steps: " + stepX + ", " + stepY);
-        
+                
         Coordinate[][] coordinateArray = new Coordinate[numberColumn][numberRow];
         
         for (int i = 0; i < coordinateArray.length; i++) {
@@ -81,20 +79,22 @@ public class FXMLDocumentController implements Initializable {
                 
                 double cX = ((double) startingPoint.getX()) + (stepX * (double) i) + 0.5;
                 c.setX((int) cX);
-                double cY = ((double) startingPoint.getY()) + (stepY * (double) i) + 0.5;
+                double cY = ((double) startingPoint.getY()) + (stepY * (double) j) + 0.5;
                 c.setY((int) cY);
                 
                 coordinateArray[i][j] = c;
             }
         }
         
+        int a = 0;
         for (int i = 0; i < coordinateArray.length; i++) {
-            Coordinate[] coordinateArray1 = coordinateArray[i];
-            for (int j = 0; j < coordinateArray1.length; j++) {
-                Coordinate coordinateArray11 = coordinateArray1[j];
+            for (int j = 0; j < coordinateArray[0].length; j++) {
+                Coordinate coordinateArray11 = coordinateArray[i][j];
                 gc.fillOval(coordinateArray11.getX()-4, coordinateArray11.getY()-4, 10, 10);
+                System.out.print(a++ + " - ");
             }
         }
+        System.out.println("");
         
     }
     
@@ -116,7 +116,6 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleCanvasOnMousePressed(MouseEvent event) {
-        System.out.println("pressed");
         startingPoint.setX((int) event.getX());
         startingPoint.setY((int) event.getY());
         System.out.println("Starting Point: " + startingPoint.getX() + ", " + startingPoint.getY());
@@ -124,7 +123,6 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleCanvasOnMouseReleased(MouseEvent event) {
-        System.out.println("released");
         System.out.println("Ending Point: " + (int) event.getX() + ", " + (int) event.getY());
     }
     

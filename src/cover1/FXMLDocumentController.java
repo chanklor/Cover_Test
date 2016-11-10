@@ -41,15 +41,14 @@ public class FXMLDocumentController implements Initializable {
     private Coordinate startingPoint = new Coordinate();
     private Coordinate currentPoint = new Coordinate();
     
-    private final int numberColumn = 4;
-    private final int numberRow = 3;
+    private final int numberColumn = 8;
+    private final int numberRow = 14;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gc = canvas.getGraphicsContext2D();
         gc.setFill(new Color(1,0,0,0.5));
         imageView.setPreserveRatio(true);
-        //image = new Image("file:C:\\Users\\47385\\Documents\\Personal\\OMR\\marce.jpg");
         image = new Image("http://www.phlmetropolis.com/Bullet%20ballot%20X.jpg");
         imageView.setImage(image);
         canvas.setHeight(imageView.getBoundsInParent().getHeight());
@@ -91,10 +90,8 @@ public class FXMLDocumentController implements Initializable {
             for (int j = 0; j < coordinateArray[0].length; j++) {
                 Coordinate coordinateArray11 = coordinateArray[i][j];
                 gc.fillOval(coordinateArray11.getX()-4, coordinateArray11.getY()-4, 10, 10);
-                System.out.print(a++ + " - ");
             }
         }
-        System.out.println("");
         
     }
     

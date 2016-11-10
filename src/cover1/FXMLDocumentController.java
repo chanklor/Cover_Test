@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cover1;
 
 import java.net.URL;
@@ -19,10 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-/**
- *
- * @author 47385
- */
 public class FXMLDocumentController implements Initializable {
     
     
@@ -42,16 +33,17 @@ public class FXMLDocumentController implements Initializable {
     private Coordinate currentPoint = new Coordinate();
     private Coordinate[][] coordinateArray = null;
     
-    private final int numberColumn = 10;
-    private final int numberRow = 10;
-    private final int pixelSize = 21;
+    private final int numberColumn = 4;
+    private final int numberRow = 15;
+    private final int pixelSize = 11;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gc = canvas.getGraphicsContext2D();
         gc.setFill(new Color(1,0,0,0.5));
         imageView.setPreserveRatio(true);
-        image = new Image("http://www.computerhope.com/jargon/o/omr.jpg");
+        //image = new Image("http://www.computerhope.com/jargon/o/omr.jpg");
+        image = new Image("http://www.omrtestsheet.com/omr-sheet-sample/90-Questions-OMR-Sheet.png");
         imageView.setImage(image);
         canvas.setHeight(imageView.getBoundsInParent().getHeight());
         canvas.setWidth(imageView.getBoundsInParent().getWidth());

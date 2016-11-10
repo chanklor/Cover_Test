@@ -40,9 +40,11 @@ public class FXMLDocumentController implements Initializable {
     
     private Coordinate startingPoint = new Coordinate();
     private Coordinate currentPoint = new Coordinate();
+    private Coordinate[][] coordinateArray = null;
     
     private final int numberColumn = 10;
     private final int numberRow = 10;
+    private final int pixelSize = 21;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,7 +71,7 @@ public class FXMLDocumentController implements Initializable {
         double stepX = deltaX / (double) (numberColumn - 1);
         double stepY = deltaY / (double) (numberRow - 1);
                 
-        Coordinate[][] coordinateArray = new Coordinate[numberColumn][numberRow];
+        coordinateArray = new Coordinate[numberColumn][numberRow];
         
         for (int i = 0; i < coordinateArray.length; i++) {
             for (int j = 0; j < coordinateArray[0].length; j++) {
@@ -84,13 +86,7 @@ public class FXMLDocumentController implements Initializable {
             }
         }
         
-        int a = 0;
-        for (int i = 0; i < coordinateArray.length; i++) {
-            for (int j = 0; j < coordinateArray[0].length; j++) {
-                Coordinate coordinateArray11 = coordinateArray[i][j];
-                gc.fillOval(coordinateArray11.getX()-9, coordinateArray11.getY()-9, 20, 20);
-            }
-        }
+        drawCoordinateArray();
         
     }
     
@@ -107,7 +103,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleCanvasOnMouseMoved(MouseEvent event) {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        gc.fillOval(event.getX()-9, event.getY()-9, 20, 20);
+        gc.fillOval(event.getX()-((int)(pixelSize/2)), event.getY()-((int)(pixelSize/2)), pixelSize, pixelSize);
+        if(coordinateArray != null) drawCoordinateArray();
     }
     
     @FXML
@@ -120,6 +117,14 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleCanvasOnMouseReleased(MouseEvent event) {
         System.out.println("Ending Point: " + (int) event.getX() + ", " + (int) event.getY());
+    }
+    
+    private void drawCoordinateArray(){
+        for (int i = 0; i < coordinateArray.length; i++) {
+            for (int j = 0; j < coordinateArray[0].length; j++) {
+                gc.fillOval(coordinateArray[i][j].getX()-((int)(pixelSize/2)), coordinateArray[i][j].getY()-((int)(pixelSize/2)), pixelSize, pixelSize);
+            }
+        }
     }
     
 }

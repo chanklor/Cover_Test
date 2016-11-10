@@ -41,15 +41,15 @@ public class FXMLDocumentController implements Initializable {
     private Coordinate startingPoint = new Coordinate();
     private Coordinate currentPoint = new Coordinate();
     
-    private final int numberColumn = 8;
-    private final int numberRow = 14;
+    private final int numberColumn = 10;
+    private final int numberRow = 10;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gc = canvas.getGraphicsContext2D();
         gc.setFill(new Color(1,0,0,0.5));
         imageView.setPreserveRatio(true);
-        image = new Image("http://www.phlmetropolis.com/Bullet%20ballot%20X.jpg");
+        image = new Image("http://www.computerhope.com/jargon/o/omr.jpg");
         imageView.setImage(image);
         canvas.setHeight(imageView.getBoundsInParent().getHeight());
         canvas.setWidth(imageView.getBoundsInParent().getWidth());
@@ -57,7 +57,6 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleCanvasOnMouseDrag(MouseEvent event){
-        //gc.fillRect(event.getX()-2, event.getY()-2, 5, 5);
         
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         
@@ -89,7 +88,7 @@ public class FXMLDocumentController implements Initializable {
         for (int i = 0; i < coordinateArray.length; i++) {
             for (int j = 0; j < coordinateArray[0].length; j++) {
                 Coordinate coordinateArray11 = coordinateArray[i][j];
-                gc.fillOval(coordinateArray11.getX()-4, coordinateArray11.getY()-4, 10, 10);
+                gc.fillOval(coordinateArray11.getX()-9, coordinateArray11.getY()-9, 20, 20);
             }
         }
         
@@ -108,7 +107,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleCanvasOnMouseMoved(MouseEvent event) {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        gc.fillOval(event.getX()-4, event.getY()-4, 10, 10);
+        gc.fillOval(event.getX()-9, event.getY()-9, 20, 20);
     }
     
     @FXML

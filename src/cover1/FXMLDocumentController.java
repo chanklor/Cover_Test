@@ -49,7 +49,8 @@ public class FXMLDocumentController implements Initializable {
         gc = canvas.getGraphicsContext2D();
         gc.setFill(new Color(1,0,0,0.5));
         imageView.setPreserveRatio(true);
-        image = new Image("file:C:\\Users\\47385\\Documents\\Personal\\OMR\\marce.jpg");
+        //image = new Image("file:C:\\Users\\47385\\Documents\\Personal\\OMR\\marce.jpg");
+        image = new Image("http://www.phlmetropolis.com/Bullet%20ballot%20X.jpg");
         imageView.setImage(image);
         canvas.setHeight(imageView.getBoundsInParent().getHeight());
         canvas.setWidth(imageView.getBoundsInParent().getWidth());
